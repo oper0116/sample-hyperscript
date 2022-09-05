@@ -16,7 +16,7 @@ function App() {
 			div(".exmaple", [h1("#heading", "This is hyperscript uses helpers"), h2("creating React.js markup")]),
 			ul(
 				".list",
-				lists.map((item, index) => li(".list", item))
+				lists.map((item, index) => li(".list", { "data-index": index }, item))
 			),
 		],
 	]);
