@@ -12,14 +12,17 @@ function App() {
 	const lists = ["a", "b"];
 
 	return h(React.Fragment, [
-		[
-			div(".exmaple", [h1("#heading", "This is hyperscript uses helpers"), h2("creating React.js markup")]),
-			ul(
-				".list",
-				lists.map((item, index) => li(".list", { "data-index": index }, item))
-			),
-		],
+		div(".exmaple", [h1("#heading", "This is hyperscript uses helpers"), h2("creating React.js markup")]),
+		ul(
+			".list",
+			lists.map((item, index) => [li(".list", { key: index, "data-index": index }, item)])
+		),
+		h(AnotherComponent, { foo: "foo value" }),
 	]);
+}
+
+function AnotherComponent({ foo }) {
+	return div(`Another Component props: ${foo}`);
 }
 
 export default App;
