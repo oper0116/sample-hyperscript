@@ -22,7 +22,11 @@ function App() {
 }
 
 function AnotherComponent({ foo }) {
-	return div(`Another Component props: ${foo}`);
+	const onClick = React.useCallback(() => {
+		console.debug("onClick");
+	}, []);
+
+	return div({ onClick: onClick }, `Another Component props: ${foo}`);
 }
 
 export default App;
